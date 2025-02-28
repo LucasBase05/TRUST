@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TRUST Plugin Options</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #333;
+    }
+    
+    h1 {
+      color: #4CAF50;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 10px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    .success {
+      background-color: #dff0d8;
+      color: #3c763d;
+    }
+    
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+    }
+    
+    .source-list {
+      margin-top: 10px;
+    }
+    
+    .source-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    
+    .source-item input {
+      flex-grow: 1;
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+    
+    .remove-source {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .add-source {
+      background-color: #2196F3;
+      margin-top: 10px;
+    }
+    
+    .info-text {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TRUST Plugin Options</h1>
+  
+  <div class="section">
+    <h2>OpenAI API Key</h2>
+    <p>The TRUST plugin uses OpenAI's GPT-4 to analyze article accuracy. You need to provide your own API key.</p>
+    
+    <label for="openai-key">OpenAI API Key:</label>
+    <input type="password" id="openai-key" placeholder="sk-...">
+    
+    <p class="info-text">Your API key is stored locally and is only used to make requests to OpenAI's API.</p>
+    <p class="info-text">Get your API key from <a href="https://platform.openai.com/account/api-keys" target="_blank">OpenAI's website</a>.</p>
+  </div>
+  
+  <div class="section">
+    <h2>Trusted Sources</h2>
+    <p>Add sources that you consider reliable for fact-checking.</p>
+    
+    <div id="trusted-sources" class="source-list">
+      <!-- Sources will be added here dynamically -->
+    </div>
+    
+    <button id="add-source" class="add-source">Add Source</button>
+  </div>
+  
+  <div class="section">
+    <h2>Display Settings</h2>
+    
+    <div>
+      <label>
+        <input type="checkbox" id="auto-analyze">
+        Automatically analyze articles when visiting news sites
+      </label>
+    </div>
+    
+    <div>
+      <label>
+        <input type="checkbox" id="show-details" checked>
+        Show detailed analysis in results
+      </label>
+    </div>
+  </div>
+  
+  <button id="save-options">Save Options</button>
+  <div id="status" class="status"></div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
+
