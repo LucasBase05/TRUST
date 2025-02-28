@@ -15,7 +15,7 @@ const DEFAULT_TRUSTED_SOURCES = [
 // Load saved options
 function loadOptions() {
   chrome.storage.sync.get({
-    openai_api_key: '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',
+    openai_api_key: '',
     trusted_sources: DEFAULT_TRUSTED_SOURCES,
     auto_analyze: false,
     show_details: true
